@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+  <!-- 项目名称 -->
+  <property name="PROJECT_NAME" value="core-data-web"/>
+
+  <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
+  <property name="LOG_HOME" value="log/zhcw-core-data"/>
+
+  <!--日志格式应用spring boot默认的格式，也可以自己更改-->
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+  <!-- 控制台输出 -->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <withJansi>true</withJansi>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+      <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %highlight([%-5level] %logger{50} - %msg%n)</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <root level="DEBUG">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+
+</configuration>
